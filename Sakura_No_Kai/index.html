@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakura No Kai - Gilda Where Winds Meet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 157, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(233, 69, 96, 0.08) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+        
+        header {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(255, 107, 157, 0.1) 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 107, 157, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        header::after {
+            content: '🌸';
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%) rotate(-15deg);
+        }
+        
+        header::before {
+            content: '🌸';
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.1;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%) rotate(15deg);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #ff6b9d, #e94560);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(255, 107, 157, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: #ffa3c1;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background-image: url('petali_di_ciliegio.gif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        
+        .section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            margin: 2.5rem 0;
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(233, 69, 96, 0.3);
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #ffa3c1;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid rgba(233, 69, 96, 0.5);
+            position: relative;
+            text-align: center;
+        }
+        
+        p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #e0e0e0;
+        }
+        
+        .members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            list-style: none;
+        }
+        
+        .member {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(255, 107, 157, 0.1) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 107, 157, 0.3);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .member:hover {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.4) 0%, rgba(255, 107, 157, 0.2) 100%);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+        }
+        
+
+        
+        .join-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, #e94560, #ff6b9d);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .join-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(233, 69, 96, 0.6);
+            background: linear-gradient(135deg, #ff6b9d, #e94560);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+            margin-top: 3rem;
+            border-top: 2px solid rgba(255, 107, 157, 0.3);
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+            color: #ffa3c1;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .members {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sakura No Kai</h1>
+        <p>Gilda ufficiale Italiana di Where Winds Meet</p>
+    </header>
+    <img src="Sakura_No_Kai_GP.png" alt="Guild members in traditional Asian-inspired armor and flowing robes stand in formation before an ornate temple entrance flanked by stone guardian lion statues. The group includes characters wielding ceremonial weapons and wearing elaborate costumes in white, red, black, and green. The atmospheric scene is set at dusk with architectural details including wooden pillars, decorative scrolls with golden inscriptions, and traditional curved roof tiles. The composition evokes camaraderie and martial prowess in an ancient Chinese setting." style="display: block; margin: 2rem auto 0 auto; max-width: 70%; height: auto; border: 4px solid rgba(255, 107, 157, 0.5); border-radius: 15px; box-shadow: 0 8px 32px rgba(233, 69, 96, 0.4); padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);">
+    <div class="container">
+        <section class="section">
+            <h2>Chi Siamo</h2>
+            <p>Benvenuti alla gilda italiana  Sakura No Kai! Qui, giocatori appassionati di where winds meet si uniscono sotto i ciliegi in fiore per condividere avventure epiche grazie al potere dell'amicizia e la passione per il gioco. Se sei capitato qui, vuol dire che stai cercando un luogo a cui appartenere. Che aspetti ad unirti?.<br><br>- MAYOMI<br>- RenjiLong<br>- AzotoLiquido</p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="galleria.html" class="join-button">📸 Galleria</a>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>I Nostri Membri</h2>
+            <ul class="members" id="membersList">
+            <li class="member">👸🏻 MAYOMI</li>
+            <li class="member">🫅🏻 RenjiLong</li>
+            <li class="member">👤 AzotoLiquido</li>
+            <li class="member">👤 SwagLeggendario</li>
+            <li class="member">👤 Virgox</li>
+            <li class="member">👤 Ryakalus</li> 
+            <li class="member" style="display: none;">👤 HilmShiom</li>
+            <li class="member" style="display: none;">👤 MoYon</li>
+            <li class="member" style="display: none;">👤 Tizius</li>
+            <li class="member" style="display: none;">👤 Mercury Mike</li>
+            <li class="member" style="display: none;">👤 Orso-Cerasuoli</li>
+            <li class="member" style="display: none;">👤 FormaJ</li>
+            <li class="member" style="display: none;">👤 KekkoShade</li>
+            <li class="member" style="display: none;">👤 GossVinyard</li>
+            <li class="member" style="display: none;">👤 khalisi</li>
+            <li class="member" style="display: none;">👤 Polisaccaride</li>
+            <li class="member" style="display: none;">👤 marryRN</li>
+            <li class="member" style="display: none;">👤 DrStrano</li>
+            <li class="member" style="display: none;">👤 ZeyroxHC</li>
+            <li class="member" style="display: none;">👤 Ssenaka</li>
+            <li class="member" style="display: none;">👤 Valtazhar</li>
+            <li class="member" style="display: none;">👤 xAlessiaaa</li>
+            <li class="member" style="display: none;">👤 Wenxz</li>
+            <li class="member" style="display: none;">👤 Niokito</li>
+            <li class="member" style="display: none;">👤 Papageno</li>
+            </ul>
+            <div style="text-align: center; margin-top: 1.5rem;">
+            <button id="toggleBtn" class="join-button" onclick="toggleMembers()">Mostra Tutti</button>
+            </div>
+        </section>
+        
+        <script>
+            let showingAll = false;
+            
+            function toggleMembers() {
+            const members = document.querySelectorAll('#membersList .member');
+            const btn = document.getElementById('toggleBtn');
+            
+            showingAll = !showingAll;
+            
+            for (let i = 6; i < members.length; i++) {
+                members[i].style.display = showingAll ? 'block' : 'none';
+            }
+            
+            btn.textContent = showingAll ? 'Mostra Meno' : 'Mostra Tutti';
+            }
+        </script>
+        
+        <section class="section cta-section" style="text-align: center;">
+            <h2>Come Unirsi</h2>
+            <p>Sei interessato a unirti alla nostra gilda? Entra a far parte della famiglia Sakura No Kai!</p>
+            <a href="unisciti.html" class="join-button">Unisciti a Noi</a>
+        </section>
+        
+        <section class="section">
+            <h2>Tornei in Programma</h2>
+            <div style="background: rgba(233, 69, 96, 0.15); padding: 2rem; border-radius: 15px; border-left: 4px solid #e94560; margin-bottom: 1.5rem;">
+                <h3 style="color: #ffa3c1; margin-bottom: 1rem; font-size: 1.5rem;">🏆 Torneo di Duello - Gennaio 2025</h3>
+                <p style="margin-bottom: 0.5rem;"><strong>Data:</strong> Da definire</p>
+                <p style="margin-bottom: 0.5rem;"><strong>Modalità:</strong> 1 vs 1</p>
+                <p style="margin-bottom: 0.5rem;"><strong>Premio:</strong> Da definire</p>
+                <p style="margin-top: 1rem;">Metti alla prova le tue abilità contro i migliori guerrieri della gilda!</p>
+            </div>
+            
+            <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #ffa3c1;">Resta aggiornato sul Discord per non perdere nessun evento! 🌸</p>
+        </section>
+    </div>
+    
+    <footer>
+        <p style="color:#e0e0e0">&copy; 2025 Sakura No Kai - Where Winds Meet</p>
+    </footer>
+</body>
+</html>
